@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MotBienParenthese {
 	private static String parentheseOuvrante = "(";
@@ -31,7 +33,7 @@ public class MotBienParenthese {
 				for(int j = 0; j < list.size() ; j++){
 					String a = apliquerConstructeur((String)list.get(i),(String) list.get(j));
 					String b = apliquerConstructeur((String)list.get(j),(String) list.get(i));
-					
+
 					if(a.length() <= n){
 						list.add(a);
 
@@ -42,25 +44,37 @@ public class MotBienParenthese {
 			}
 
 			delete(n);
+			deleteDoublons();
 			
+			//Affichage
+			for(int i = 0; i < list.size();i++){
+				System.out.println(list.get(i));
+			}
 		}
 
 	}
 
 	private static void delete(int n){
-		for(int j = 0; j < list.size(); j++){
+
 		for(int i = 0 ; i < list.size(); i++){
 			if(((String) list.get(i)).length() != n ){
 				list.remove(i);
+				i--;
 			}
 		}
-		
-		}
-		for(int i = 0; i < list.size();i++){
-			System.out.println(list.get(i));
-		}
+
 	}
-	
+
+	private static void deleteDoublons(){
+
+		Set set = new HashSet() ;
+		set.addAll(list) ;
+		ArrayList dis = new ArrayList(set) ;
+		list = null;
+		list = dis;
+
+	}
+
 	private static String apliquerConstructeur(String a, String b){
 		return parentheseOuvrante + a + parentheseFermante +b;		
 	}

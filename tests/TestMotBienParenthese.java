@@ -17,5 +17,7 @@ public class TestMotBienParenthese {
 		MotBienParenthese.enumMotsBP(3);
 		System.out.println("Les mots bien parenthésé de longueur 4 :");
 		MotBienParenthese.enumMotsBP(4);
+		System.out.println("Les mots bien parenthésé de longueur 5 :");
+		MotBienParenthese.enumMotsBP(5);
 	}
 }
