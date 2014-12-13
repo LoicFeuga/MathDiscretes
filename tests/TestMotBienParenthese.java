@@ -13,11 +13,18 @@ public class TestMotBienParenthese {
 		MotBienParenthese.reset();
 		System.out.println("Les mots bien parenthésé de longueur 2 :");
 		MotBienParenthese.enumMotsBP(2);
+		MotBienParenthese.reset();
 		System.out.println("Les mots bien parenthésé de longueur 3 :");
 		MotBienParenthese.enumMotsBP(3);
+		MotBienParenthese.reset();
 		System.out.println("Les mots bien parenthésé de longueur 4 :");
 		MotBienParenthese.enumMotsBP(4);
+		MotBienParenthese.reset();
 		System.out.println("Les mots bien parenthésé de longueur 5 :");
 		MotBienParenthese.enumMotsBP(5);
+		MotBienParenthese.reset();
+		System.out.println("Les mots bien parenthésé de longueur 6 :");
+		MotBienParenthese.enumMotsBP(6);
+		MotBienParenthese.reset();
 	}
 }
