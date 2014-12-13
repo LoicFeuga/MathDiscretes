@@ -44,48 +44,38 @@ public class MotBienParenthese {
 			}
 			
 			//Si on a pas fini, on repart
-			if(nb < list.size() ){
-				nb++;
-				if(nb < list.size() - 1) enumMotsBP(n/2);		
-			}
+			if(nb < list.size() && ++nb < list.size() - 1 )	enumMotsBP(n/2);
 			
 			//Pour que la récursivité n'affiche pas n fois les () on condanme avec une constante au premier passage
 			if(fin == 0){
+				//On codanme
 				fin++;
-				//Suppression des mots avec la mauvaise longueur
-				delete(n);
-				//Suppression des mots en double
-				deleteDoublons();
+				//Suppression des mots avec la mauvaise longueur et des doublons
+				delete(n);	deleteDoublons();
 				int i = 0;
 				//Affichage des mots BP
 				for( ; i < list.size();i++)	System.out.println(list.get(i));
 				
 				System.out.println("Soit "+i+" nombres");
 			}
-			
 		}
-
 	}
 
 	private static void delete(int n){
-
-		for(int i = 0 ; i < list.size(); i++){
+		for(int i = 0 ; i < list.size(); i++)
 			if(((String) list.get(i)).length() != n ){
 				list.remove(i);
 				i--;
 			}
-		}
-
+		
 	}
 
 	private static void deleteDoublons(){
-
 		Set set = new HashSet() ;
 		set.addAll(list) ;
 		ArrayList dis = new ArrayList(set) ;
 		list = null;
 		list = dis;
-
 	}
 
 	private static String apliquerConstructeur(String a, String b){
