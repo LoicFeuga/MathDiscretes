@@ -61,6 +61,8 @@ public class MotBienParenthese {
 		}
 	}
 
+
+		   
 	private static void delete(int n){
 		for(int i = 0 ; i < list.size(); i++)
 			if(((String) list.get(i)).length() != n ){
