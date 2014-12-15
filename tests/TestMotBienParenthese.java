@@ -5,8 +5,19 @@ import java.util.Scanner;
 
 import model.MotBienParenthese;
 
+
+/**
+ * The Class TestMotBienParenthese.
+ * 
+ * @author loic, arnaud
+ */
 public class TestMotBienParenthese {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		System.out.print("Jusqu'à ? ");
 		Scanner sc = new Scanner(System.in);

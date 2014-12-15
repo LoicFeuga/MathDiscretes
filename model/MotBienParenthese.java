@@ -4,17 +4,47 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+
+/**
+ * The Class MotBienParenthese.
+ * 
+ * @author loic, arnaud
+ */
 public class MotBienParenthese {
+	
+	/** The parenthese ouvrante. */
 	private static String parentheseOuvrante = "(";
+	
+	/** The parenthese fermante. */
 	private static String parentheseFermante = ")";
+	
+	/** The compteur ouvrante. */
 	private static int compteurOuvrante = 0;
+	
+	/** The compteur fermante. */
 	private static int compteurFermante = 0;
+	
+	/** The list. */
 	private static ArrayList list = new ArrayList();
+	
+	/** The compteur. */
 	private static int compteur = 0;
+	
+	/** The altitude. */
 	private static int altitude = 0;
+	
+	/** The nb. */
 	private static int nb = 0;
+	
+	/** The fin. */
 	private static int fin = 0;
 
+	/**
+	 * Enum mots bp.
+	 *
+	 * @author loic
+	 * @param n the n
+	 */
 	public static void enumMotsBP(int n) {
 		n *= 2;
 
@@ -76,6 +106,11 @@ public class MotBienParenthese {
 		}
 	}
 
+	/**
+	 * Delete.
+	 * @author loic
+	 * @param n the n
+	 */
 	private static void delete(int n) {
 		for (int i = 0; i < list.size(); i++)
 			if (((String) list.get(i)).length() != n) {
@@ -85,6 +120,10 @@ public class MotBienParenthese {
 
 	}
 
+	/**
+	 * Delete doublons.
+	 * @author loic
+	 */
 	private static void deleteDoublons() {
 		Set set = new HashSet();
 		set.addAll(list);
@@ -93,10 +132,23 @@ public class MotBienParenthese {
 		list = dis;
 	}
 
+	/**
+	 * Apliquer constructeur.
+	 * 
+	 * @author loic
+	 *
+	 * @param a the a
+	 * @param b the b
+	 * @return the string
+	 */
 	private static String apliquerConstructeur(String a, String b) {
 		return parentheseOuvrante + a + parentheseFermante + b;
 	}
 
+	/**
+	 * Adds the ouvrante.
+	 * @author loic
+	 */
 	private static void addOuvrante() {
 		System.out.print("(");
 		compteurOuvrante++;
@@ -104,6 +156,10 @@ public class MotBienParenthese {
 		altitude++;
 	}
 
+	/**
+	 * Reset.
+	 * @author loic
+	 */
 	public static void reset() {
 		nb = 0;
 		list = null;
@@ -115,6 +171,10 @@ public class MotBienParenthese {
 		fin = 0;
 	}
 
+	/**
+	 * Adds the fermante.
+	 * @author loic
+	 */
 	private static void addFermante() {
 		System.out.print(")");
 		compteurFermante++;
@@ -122,6 +182,13 @@ public class MotBienParenthese {
 		altitude--;
 	}
 
+	/**
+	 * Catalan.
+	 *
+	 * @author arnaud
+	 * @param n the n
+	 * @return the int
+	 */
 	public static int catalan(int n) {
 		if (n <= 1) {
 			return 1;
