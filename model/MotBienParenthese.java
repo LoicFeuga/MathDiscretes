@@ -36,12 +36,17 @@ public class MotBienParenthese {
 			if (nb == 0)
 				list.add("");
 
+			
 			for (int j = 0; j < list.size(); j++) {
 				String a = apliquerConstructeur((String) list.get(nb),
 						(String) list.get(j));
 				String b = apliquerConstructeur((String) list.get(j),
 						(String) list.get(nb));
+				
+				/*String a = "("+ list.get(nb)+")"+ list.get(j);
+				String b = "("+ list.get(j)+")"+ list.get(nb);*/
 
+				//Sans le contains et avec le delete doublons, temps * 10+
 				if (a.length() <= n && !list.contains(a) && a != "")
 					list.add(a);
 				if (b.length() <= n && !list.contains(b) && b != "")
@@ -60,7 +65,7 @@ public class MotBienParenthese {
 				// Suppression des mots avec la mauvaise longueur et des
 				// doublons
 				delete(n);
-				deleteDoublons();
+				//deleteDoublons();
 				int i = 0;
 				// Affichage des mots BP
 				for (; i < list.size(); i++)
