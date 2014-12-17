@@ -16,11 +16,10 @@ public class TestGrandEntier {
 		for(int i = 0; i < 10 ; i++) list.add(i);
 		
 		GrandEntier ge = new GrandEntier(list);
-		GrandEntier g;
-		for(int i = 0;i<200000;i++){
-			
-		 g = new GrandEntier(20,new Random());
-		System.out.println(ge + " de taille : "+ge.length());
+		GrandEntier g = new GrandEntier(40,new Random());
+		for(int i = 0;g.length()>=39;i++){
+			g = new GrandEntier(40,new Random());
+			System.out.println(g + " de taille : "+g.length());
 		}
 
 	}

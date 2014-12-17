@@ -58,8 +58,13 @@ public class GrandEntier {
 			int randomNum =  0 + i;
 
 			if(randomNum < 0) randomNum*=-1;
-
-			integerList.add(randomNum);
+			
+			if(j == numBits - 1 && randomNum == 0){j--;}
+			else{
+				integerList.add(randomNum);
+				
+			}
+			
 
 		}
 
