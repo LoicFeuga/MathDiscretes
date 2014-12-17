@@ -49,9 +49,8 @@ public class GrandEntier {
 	public GrandEntier(int numBits, Random rnd){
 		Integer old_numBits = new Integer(numBits);
 		integerList = new ArrayList();
-		//Décomposition en grand Entier du randomNum
-
-
+		
+		//
 		for(int j = 0 ; j < numBits ;j++){
 			int n = (int) (BASE - 1 + 1);
 			int i = rnd.nextInt() % n;
@@ -59,11 +58,8 @@ public class GrandEntier {
 
 			if(randomNum < 0) randomNum*=-1;
 			
-			if(j == numBits - 1 && randomNum == 0){j--;}
-			else{
-				integerList.add(randomNum);
-				
-			}
+			if(j == numBits - 1 && randomNum == 0) j--;
+			else integerList.add(randomNum);
 			
 
 		}
@@ -82,9 +78,51 @@ public class GrandEntier {
 
 		return str;
 	}
+	
+	/**
+	 * Equals
+	 */
+	@Override
+	public boolean equals(Object arg0) {
+		if(arg0 instanceof GrandEntier) {
+			GrandEntier g = (GrandEntier) arg0;
+			if(g.length() != length()) return false;
+			for(int i = 0; i < length(); i++){
+				if(((Integer)g.get(i)).equals(get(i))){
 
+				}else return false;
+			}
+		}else{
+			return false;
+		}
+		return true;
+	}
+	/**
+	 * Taille du grand entier en integer
+	 * @return
+	 */
 	public int length(){
 		return integerList.size();
 	}
-
+	
+	
+	/**
+	 * -1 this inferieur
+	 * 0 egal
+	 * 1 this superieur
+	 * @param g
+	 * @return
+	 */
+	public int compareTo(GrandEntier g) {
+		for(int i = length()-1; i > 0;i--){
+			if(get(i) > g.get(i)) return 1;
+			else if(get(i) < g.get(i)) return -1;
+			else {}
+		}
+		return 0;
+	}
+	
+	public ArrayList getList(){return integerList;}
+	
+	public int get(int i){return integerList.get(i);}
 }
