@@ -1,6 +1,7 @@
 package tests;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import exception.GrandEntierException;
 import exception.IntegerNotInBaseException;
@@ -14,11 +15,14 @@ public class TestGrandEntier {
 		
 		for(int i = 0; i < 10 ; i++) list.add(i);
 		
-		list.add(14);
-		list.add(0);
-		
 		GrandEntier ge = new GrandEntier(list);
-		
+		GrandEntier g;
+		for(int i = 0;i<200000;i++){
+			
+		 g = new GrandEntier(20,new Random());
+		System.out.println(g + " de taille : "+g.length());
+		}
+
 	}
 
 }
