@@ -20,7 +20,7 @@ public class TestGrandEntier {
 		for(int i = 0;i<200000;i++){
 			
 		 g = new GrandEntier(20,new Random());
-		System.out.println(g + " de taille : "+g.length());
+		System.out.println(ge + " de taille : "+ge.length());
 		}
 
 	}
