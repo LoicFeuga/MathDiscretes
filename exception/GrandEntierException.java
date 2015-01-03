@@ -3,7 +3,7 @@ package exception;
 public class GrandEntierException extends Exception{
 	
 	public GrandEntierException(){
-		super("couocu");
+		super("coucou");
 	}
 	
 	public GrandEntierException(String message){

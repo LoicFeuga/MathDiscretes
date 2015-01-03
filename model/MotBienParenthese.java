@@ -51,9 +51,12 @@ public class MotBienParenthese {
 		n *= 2;
 
 		// Si 0 mot
-		if (n <= 0) {
+		if (n < 0) {
 			System.out.println("0 mot");
 			return;
+		}
+		if (n == 0) {
+			System.out.println("1 mot."); // le mot vide
 		}
 		// Si 1 mot
 		else if (n == 2) {
@@ -195,7 +198,7 @@ public class MotBienParenthese {
 
 	/**
 	 * Catalan.
-	 *
+	 * Complexité linéaire.
 	 * @author Arnaud Garnier
 	 * @param n
 	 * @return le nombre de mots bien parenthésés de longueur 2*n
@@ -213,7 +216,7 @@ public class MotBienParenthese {
 
 	/**
 	 * Catalan v2.
-	 *
+	 * Complexité quadratique
 	 * @author Arnaud Garnier
 	 * @param n
 	 * @return le nombre de mots de longueur bien parenthésés de longueur 2*n,
