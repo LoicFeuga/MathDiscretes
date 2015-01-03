@@ -10,7 +10,7 @@ public class GrandEntier {
 
 	private static final int BASE = 16;
 	/**
-	 * taille maximal d'une écrite
+	 * taille maximale d'une écriture
 	 */
 	private static final int MAXBITLENGTH = 10000000;
 	/**
@@ -66,34 +66,50 @@ public class GrandEntier {
 	/**
 	 * Equals
 	 */
-	/*
-	 * @Override public boolean equals(Object arg0) { if (arg0 instanceof
-	 * GrandEntier) { GrandEntier g = (GrandEntier) arg0; if (g.length() !=
-	 * length()) return false; for (int i = 0; i < length(); i++) { if
-	 * (((Integer) g.get(i)).equals(get(i))) {
-	 * 
-	 * } else return false; } } else { return false; } return true; }
-	 */
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof GrandEntier) {
+			if (((GrandEntier) o).getSum() == this.getSum()) {
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
-	 * Taille du grand entier en integer
 	 * 
-	 * @return
+	 * @return la taille de l'écriture du grand entier
 	 */
-	/*
-	 * public int length() { return integerList.size(); }
-	 */
+
+	public int length() {
+		int res = 1;
+		int stock = this.getSum();
+		for (int i = 0; i < MAXBITLENGTH; i++) {
+			stock /= 10;
+			if (stock != 0) {
+				res += 1;
+			}
+		}
+		return res;
+	}
+
+
 	/**
-	 * -1 if inferieur 0 egal 1 if superieur
 	 * 
 	 * @param g
-	 * @return
+	 * @return -1 si this GrandEntier est plus petit que g, 0 si égal, 1 si this
+	 *         GrandEntier est plus grand que g
 	 */
-	/*
-	 * public int compareTo(GrandEntier g) { for (int i = length() - 1; i > 0;
-	 * i--) { if (get(i) > g.get(i)) return 1; else if (get(i) < g.get(i))
-	 * return -1; else { } } return 0; }
-	 */
+	public int compareTo(GrandEntier g) {
+		if (this.getSum() > g.getSum()) {
+			return 1;
+		} else if (this.getSum() < g.getSum()) {
+			return -1;
+		} else {
+			return 0;
+		}
+	}
 
 	public int getSum() {
 		return sum;

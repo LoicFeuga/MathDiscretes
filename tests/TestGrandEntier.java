@@ -21,6 +21,8 @@ public class TestGrandEntier {
 		System.out.println(list);
 		GrandEntier g = new GrandEntier(list);
 		System.out.println(g);
+		System.out.println("La longueur de ce grand entier : " + g.length());
+		System.out.println("Quelques grands entiers aléatoires :");
 		for (int i = 0; i < 10; i++) {
 			// un grand entier compris entre 0 et 7 ( = 2^3 -1)
 			GrandEntier newG = new GrandEntier(3, new Random());
