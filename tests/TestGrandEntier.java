@@ -13,14 +13,19 @@ public class TestGrandEntier {
 			GrandEntierException {
 
 		ArrayList<Integer> list = new ArrayList<Integer>();
+		ArrayList<Integer> listBis = new ArrayList<Integer>();
 
-		// exemple donné dans l'énoncé
-		list.add(3);
-		list.add(0);
-		list.add(12);
+		list.add(1);
+		list.add(2);
+		listBis.add(0);
+		listBis.add(1);
 		System.out.println(list);
 		GrandEntier g = new GrandEntier(list);
+		GrandEntier ge = new GrandEntier(listBis);
 		System.out.println(g);
+		System.out.println(ge);
+		System.out.println(g.add(ge));
+		System.out.println(g.shiftLeft(1));
 		System.out.println("La longueur de ce grand entier : " + g.length());
 		System.out.println("Quelques grands entiers aléatoires :");
 		for (int i = 0; i < 10; i++) {
@@ -28,12 +33,8 @@ public class TestGrandEntier {
 			GrandEntier newG = new GrandEntier(3, new Random());
 			System.out.println(newG);
 		}
-		/*
-		 * for(int i = 0;i < 10;i++){ g = new GrandEntier(40,new Random());
-		 * System.out.println(g + " de taille : "+g.length()); } GrandEntier g2
-		 * = new GrandEntier(40,new Random());
-		 * System.out.println(g.compareTo(g2));
-		 */
+		System.out.println("g plus grand que ge ?");
+		System.out.println(g.compareTo(ge));
 
 	}
 

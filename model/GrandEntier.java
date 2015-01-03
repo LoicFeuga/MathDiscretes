@@ -16,7 +16,12 @@ public class GrandEntier {
 	/**
 	 * Le grand entier
 	 */
-	private int sum;
+	private Integer sum;
+
+	/**
+	 * Liste des chiffres de l'écriture
+	 */
+	private ArrayList<Integer> listInteger;
 
 	/**
 	 * Each integer in the list in operande, will be test to be sure than each
@@ -35,9 +40,11 @@ public class GrandEntier {
 			throw new GrandEntierException("[ERROR] Last integer is 0");
 		} else {
 			sum = 0;
+			listInteger = new ArrayList<Integer>();
 			for (int i = 0; i < ge.size(); i++) {
 				if (ge.get(i) < BASE) {
-					sum += (ge.get(i) * (int) (Math.pow(BASE, i)));
+					sum += ge.get(i) * (int) (Math.pow(BASE, i));
+					listInteger.add(ge.get(i));
 				}
 				// Si l'item n'est pas dans la base
 				else {
@@ -94,6 +101,47 @@ public class GrandEntier {
 		return res;
 	}
 
+	/**
+	 * 
+	 * @param n
+	 * @return this * (BASE ^ n)
+	 * @throws IntegerNotInBaseException
+	 * @throws GrandEntierException
+	 */
+	public GrandEntier shiftLeft(int n) throws IntegerNotInBaseException,
+			GrandEntierException {
+		GrandEntier result;
+		ArrayList<Integer> theList = new ArrayList<Integer>();
+		for (int i = 0; i < n; i++) {
+			theList.add(0);
+		}
+		for (int i = 0; i < this.getListInteger().size(); i++) {
+			theList.add(this.getListInteger().get(i));
+		}
+		result = new GrandEntier(theList);
+		return result;
+	}
+
+	/**
+	 * 
+	 * @param ge
+	 * @return this + ge
+	 * @throws GrandEntierException
+	 * @throws IntegerNotInBaseException
+	 */
+	public GrandEntier add(GrandEntier ge) throws IntegerNotInBaseException,
+			GrandEntierException {
+		GrandEntier result;
+		Integer addition = 0;
+		ArrayList<Integer> theList = new ArrayList<Integer>();
+		for (int i = 0; i < this.getListInteger().size(); i++) {
+			addition = this.getListInteger().get(i)
+					+ ge.getListInteger().get(i);
+			theList.add(addition);
+		}
+		result = new GrandEntier(theList);
+		return result;
+	}
 
 	/**
 	 * 
@@ -111,8 +159,11 @@ public class GrandEntier {
 		}
 	}
 
-	public int getSum() {
+	public Integer getSum() {
 		return sum;
 	}
 
+	public ArrayList<Integer> getListInteger() {
+		return listInteger;
+	}
 }
