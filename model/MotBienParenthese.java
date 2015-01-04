@@ -24,7 +24,7 @@ public class MotBienParenthese {
 	private static int compteurFermante;
 
 	/** The list. */
-	private static ArrayList list = new ArrayList();
+	private static ArrayList<Object> list = new ArrayList<Object>();
 
 	/** The compteur. */
 	private static int compteur;
@@ -133,10 +133,11 @@ public class MotBienParenthese {
 	 * 
 	 * @author loic
 	 */
+	@SuppressWarnings("unused")
 	private static void deleteDoublons() {
-		Set set = new HashSet();
+		Set<Object> set = new HashSet<Object>();
 		set.addAll(list);
-		ArrayList dis = new ArrayList(set);
+		ArrayList<Object> dis = new ArrayList<Object>(set);
 		list = null;
 		list = dis;
 	}
@@ -197,8 +198,8 @@ public class MotBienParenthese {
 	}
 
 	/**
-	 * Catalan.
-	 * Complexité linéaire.
+	 * Catalan. Complexité linéaire.
+	 * 
 	 * @author Arnaud Garnier
 	 * @param n
 	 * @return le nombre de mots bien parenthésés de longueur 2*n
@@ -215,8 +216,8 @@ public class MotBienParenthese {
 	}
 
 	/**
-	 * Catalan v2.
-	 * Complexité quadratique
+	 * Catalan v2. Complexité quadratique
+	 * 
 	 * @author Arnaud Garnier
 	 * @param n
 	 * @return le nombre de mots de longueur bien parenthésés de longueur 2*n,

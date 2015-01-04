@@ -6,6 +6,11 @@ import java.util.Random;
 import exception.GrandEntierException;
 import exception.IntegerNotInBaseException;
 
+/**
+ * 
+ * @author Arnaud Garnier and loic
+ *
+ */
 public class GrandEntier {
 
 	private static final int BASE = 16;
@@ -24,8 +29,9 @@ public class GrandEntier {
 	private ArrayList<Integer> listInteger;
 
 	/**
-	 * Each integer in the list in operande, will be test to be sure than each
-	 * are in correct base specified by BASE
+	 * @author Arnaud Garnier and Loic Each integer in the list in operande,
+	 *         will be test to be sure than each are in correct base specified
+	 *         by BASE
 	 * 
 	 * @param ge
 	 *            who contains each integer
@@ -56,6 +62,7 @@ public class GrandEntier {
 	}
 
 	/**
+	 * @author Arnaud Garnier
 	 * 
 	 * @param numBits
 	 *            nombre de bits pour coder l'integer
@@ -73,7 +80,6 @@ public class GrandEntier {
 	/**
 	 * Equals
 	 */
-
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof GrandEntier) {
@@ -85,6 +91,7 @@ public class GrandEntier {
 	}
 
 	/**
+	 * @author Arnaud Garnier
 	 * 
 	 * @return la taille de l'écriture du grand entier
 	 */
@@ -102,6 +109,7 @@ public class GrandEntier {
 	}
 
 	/**
+	 * @author Arnaud Garnier
 	 * 
 	 * @param n
 	 * @return this * (BASE ^ n)
@@ -123,6 +131,7 @@ public class GrandEntier {
 	}
 
 	/**
+	 * @author Arnaud Garnier
 	 * 
 	 * @param ge
 	 * @return this + ge
@@ -144,6 +153,7 @@ public class GrandEntier {
 	}
 
 	/**
+	 * @author Arnaud Garnier
 	 * 
 	 * @param g
 	 * @return -1 si this GrandEntier est plus petit que g, 0 si égal, 1 si this
@@ -159,10 +169,19 @@ public class GrandEntier {
 		}
 	}
 
+	// getter methods
+	/**
+	 * 
+	 * @return la valeur du grand entier
+	 */
 	public Integer getSum() {
 		return sum;
 	}
 
+	/**
+	 * 
+	 * @return la liste des chiffres représentant le grand entier
+	 */
 	public ArrayList<Integer> getListInteger() {
 		return listInteger;
 	}

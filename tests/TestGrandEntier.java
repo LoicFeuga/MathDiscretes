@@ -14,7 +14,7 @@ public class TestGrandEntier {
 
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		ArrayList<Integer> listBis = new ArrayList<Integer>();
-
+		
 		list.add(1);
 		list.add(2);
 		listBis.add(0);
