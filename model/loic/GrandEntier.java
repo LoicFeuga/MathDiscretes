@@ -23,6 +23,7 @@ public class GrandEntier {
 	 * Each integer in the list in operande, will be test
 	 *   to be sure than each are in correct base specified by BASE
 	 *    
+	 *    TEST OK
 	 * @param list who contains each integer
 	 * @throws IntegerNotInBaseException 
 	 * @throws GrandEntierException 
@@ -44,7 +45,8 @@ public class GrandEntier {
 	}
 
 	/**
-	 * 
+	 * Constructeur  d'un grand entier sur numBits avec maximum compris dans la BASE, avec un random
+	 * TEST ok
 	 * @param numBits nombre de bits pour coder l'integer
 	 * @param rnd 
 	 */
@@ -73,6 +75,7 @@ public class GrandEntier {
 	 * Méthode toString
 	 * Elle affiche le grand entier en puissance de la base
 	 * Qui sera pris dans la ArrayList
+	 * TEST OK
 	 */
 	@Override
 	public String toString() {
@@ -88,6 +91,8 @@ public class GrandEntier {
 
 	/**
 	 * Equals
+	 * Test l'équalite entre deux GrandEntier 
+	 * TEST OK
 	 */
 	@Override
 	public boolean equals(Object arg0) {
@@ -136,4 +141,6 @@ public class GrandEntier {
 	public ArrayList getList(){return integerList;}
 
 	public int get(int i){return integerList.get(i);}
+	
+	public int getBASE(){return BASE;}
 }
