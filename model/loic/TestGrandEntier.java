@@ -46,6 +46,23 @@ public class TestGrandEntier {
 		System.out.println("J'attends "+gpetit.get(3)+"x"+gpetit.getBASE()+"^3 + "+gpetit.get(2)+"x"+gpetit.getBASE()+"^2 + "+
 				gpetit.get(1)+"x"+gpetit.getBASE()+"^1 + 0x"+gpetit.getBASE()+"^0");
 		System.out.println("J'obtiens : "+gpetit);
+		System.out.println("\n---Méthode add");
+		ArrayList list2 = new ArrayList<>();
+		list2.add(9);
+		list2.add(9);
+		list2.add(9);
+		ArrayList list3 = new ArrayList<>();
+		list3.add(9);
+		list3.add(9);
+		list3.add(9);
+		GrandEntier gpetit2 = new GrandEntier(list2);
+		GrandEntier gpetit3 = new GrandEntier(list3);
+
+		GrandEntier gresult = gpetit2.add(gpetit3);
+		System.out.println(gpetit2);		
+		System.out.println("+");
+		System.out.println(gpetit3);
+		System.out.println("="+gresult);
 
 	}
 

@@ -70,6 +70,10 @@ public class GrandEntier {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	public GrandEntier(GrandEntier g){
+		integerList = (ArrayList<Integer>) g.getList().clone();
+	}
 
 	/**
 	 * Méthode toString
@@ -153,6 +157,55 @@ public class GrandEntier {
 		al.addAll(integerList);
 		
 		return new GrandEntier(al);
+	}
+	
+	/**
+	 * Méthode add
+	 * TEST
+	 * @param ge
+	 * @return
+	 */
+	public GrandEntier add(GrandEntier ge){
+		Integer retenue = 0, resultat = 0;
+		GrandEntier g = null, other = null;
+		
+		//Ge supérieure
+		if(compareTo(ge) < 0){
+			//Je me base sur l'adresse de ge
+			 g = new GrandEntier(ge);
+			 other = new GrandEntier(this);
+		}else {
+			g = new GrandEntier(this);
+			other = new GrandEntier(ge);
+		}
+		
+		for(int i = 0; i < g.length();i++){
+			 resultat = g.get(i) + other.get(i) + retenue;
+			if(resultat > BASE){
+				retenue = 1;
+				resultat %= BASE;
+			}else{
+				retenue = 0;
+			}
+			g.set(i,resultat);
+		}
+		
+		if(retenue == 1){
+			resultat %= BASE;
+			g.getList().add(1);
+		}
+		
+		try {
+			return new GrandEntier((ArrayList<Integer>) g.getList().clone());
+		} catch (IntegerNotInBaseException | GrandEntierException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public void set(int i, int n){
+		integerList.set(i,n);
 	}
 	
 	public ArrayList getList(){return integerList;}
