@@ -142,14 +142,17 @@ public class GrandEntier {
 	 * Méthode ShiftLeft
 	 * Décalage de n 0 
 	 * @param n
+	 * @throws GrandEntierException 
+	 * @throws IntegerNotInBaseException 
 	 */
-	public void shitfLeft(int n){
+	public GrandEntier shitfLeft(int n) throws IntegerNotInBaseException, GrandEntierException{
 		ArrayList al = new ArrayList<>();
 		
 		for(int i = 0; i < n ; i++)	al.add(0);
-		
+	
 		al.addAll(integerList);
-		integerList = al;
+		
+		return new GrandEntier(al);
 	}
 	
 	public ArrayList getList(){return integerList;}
