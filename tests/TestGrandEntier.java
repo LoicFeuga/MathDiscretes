@@ -30,7 +30,7 @@ public class TestGrandEntier {
 		System.out.println("Quelques grands entiers aléatoires :");
 		for (int i = 0; i < 10; i++) {
 			// un grand entier compris entre 0 et 7 ( = 2^3 -1)
-			GrandEntier newG = new GrandEntier(3, new Random());
+			GrandEntier newG = new GrandEntier(300000000, new Random());
 			System.out.println(newG);
 		}
 		System.out.println("g plus grand que ge ?");
