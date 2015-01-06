@@ -18,24 +18,29 @@ public class TestGrandEntier {
 		list.add(1);
 		list.add(1);
 		list.add(2);
-		GrandEntier ge= new GrandEntier(list);
+		GrandEntier gpetit= new GrandEntier(list);
 		System.out.println("ok");
 		System.out.println("\n---Constructeurs avec nombre de bit + random");
-		GrandEntier g = new GrandEntier(10, new Random());
+		GrandEntier ggrand = new GrandEntier(10, new Random());
 		System.out.println("ok");
 		System.out.println("\n\n--Partie méthodes");
 		System.out.println("---Méthode toString"); 
-		System.out.println("J'attends "+list.get(2)+"x"+ge.getBASE()+"^2 + "+list.get(1)+"x"+ge.getBASE()+"^1 + "+
-				list.get(0)+"x"+ge.getBASE()+"^0");
-		System.out.println("J'obtiens : "+ge);
+		System.out.println("J'attends "+list.get(2)+"x"+gpetit.getBASE()+"^2 + "+list.get(1)+"x"+gpetit.getBASE()+"^1 + "+
+				list.get(0)+"x"+gpetit.getBASE()+"^0");
+		System.out.println("J'obtiens : "+gpetit);
 		System.out.println("\n---Méthode equals");
-		System.out.println("J'attends false, j'obtiens : " + ge.equals(g));
-		System.out.println("J'attends false, j'obtiens : " + g.equals(ge));
-		System.out.println("J'attends true, j'obtiens : " + g.equals(g));
-		System.out.println("J'attends true, j'obtiens : " + ge.equals(ge));
+		System.out.println("J'attends false, j'obtiens : " + gpetit.equals(ggrand));
+		System.out.println("J'attends false, j'obtiens : " + ggrand.equals(gpetit));
+		System.out.println("J'attends true, j'obtiens : " + ggrand.equals(ggrand));
+		System.out.println("J'attends true, j'obtiens : " + gpetit.equals(gpetit));
 		System.out.println("\n---Méthode length");
-		System.out.println("J'attends 3, j'obtiens : "+ge.length());
-		System.out.println("J'attends 10, j'obtiens : "+g.length());
+		System.out.println("J'attends 3, j'obtiens : "+gpetit.length());
+		System.out.println("J'attends 10, j'obtiens : "+ggrand.length());
+		System.out.println("\n---Méthode compareTo");
+		System.out.println("J'attends 1, j'obtiens : "+ggrand.compareTo(gpetit));
+		System.out.println("J'attends -1, j'obtiens : "+gpetit.compareTo(ggrand));
+		System.out.println("J'attends 0, j'obtiens : "+ggrand.compareTo(ggrand));
+		System.out.println("J'attends 0, j'obtiens : "+gpetit.compareTo(gpetit));
 
 
 	}
