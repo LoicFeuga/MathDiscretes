@@ -41,7 +41,9 @@ public class TestGrandEntier {
 		System.out.println("J'attends -1, j'obtiens : "+gpetit.compareTo(ggrand));
 		System.out.println("J'attends 0, j'obtiens : "+ggrand.compareTo(ggrand));
 		System.out.println("J'attends 0, j'obtiens : "+gpetit.compareTo(gpetit));
-
+		System.out.println("\n---Méthode shiftLeft");
+		gpetit.shitfLeft(1);
+		System.out.println(gpetit);
 
 	}
 

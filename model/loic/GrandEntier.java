@@ -137,7 +137,21 @@ public class GrandEntier {
 			return 0;
 		}
 	}
-
+	
+	/**
+	 * Méthode ShiftLeft
+	 * Décalage de n 0 
+	 * @param n
+	 */
+	public void shitfLeft(int n){
+		ArrayList al = new ArrayList<>();
+		
+		for(int i = 0; i < n ; i++)	al.add(0);
+		
+		al.addAll(integerList);
+		integerList = al;
+	}
+	
 	public ArrayList getList(){return integerList;}
 
 	public int get(int i){return integerList.get(i);}
