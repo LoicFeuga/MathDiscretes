@@ -50,17 +50,25 @@ public class TestGrandEntier {
 		ArrayList list2 = new ArrayList<>();
 		list2.add(9);
 		list2.add(9);
-		list2.add(9);
+
+
 		ArrayList list3 = new ArrayList<>();
 		list3.add(9);
 		list3.add(9);
-		list3.add(9);
+
+
 		GrandEntier gpetit2 = new GrandEntier(list2);
 		GrandEntier gpetit3 = new GrandEntier(list3);
 
 		GrandEntier gresult = gpetit2.add(gpetit3);
 		System.out.println(gpetit2);		
 		System.out.println("+");
+		System.out.println(gpetit3);
+		System.out.println("="+gresult);
+		System.out.println("\n---Méthode multiply");
+		 gresult = gpetit2.multiply(gpetit3);
+		System.out.println(gpetit2);		
+		System.out.println("*");
 		System.out.println(gpetit3);
 		System.out.println("="+gresult);
 
