@@ -49,7 +49,19 @@ public class TestGrandEntier {
 		ArrayList list2 = new ArrayList<>();
 		list2.add(9);
 		list2.add(9);
+		list2.add(9);
+		list2.add(9);
+		list2.add(9);
+		list2.add(9);
+		list2.add(9);
+		list2.add(9);
 		ArrayList list3 = new ArrayList<>();
+		list3.add(9);
+		list3.add(9);
+		list3.add(9);
+		list3.add(9);
+		list3.add(9);
+		list3.add(9);
 		list3.add(9);
 
 		GrandEntier gpetit2 = new GrandEntier(list2);

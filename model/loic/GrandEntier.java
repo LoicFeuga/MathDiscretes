@@ -155,7 +155,7 @@ public class GrandEntier {
 	 * @throws GrandEntierException 
 	 * @throws IntegerNotInBaseException 
 	 */
-	public GrandEntier shitfLeft(int n) throws IntegerNotInBaseException, GrandEntierException{
+	public GrandEntier shitfLeft(int n) {
 		ArrayList al = new ArrayList<>();
 
 		for(int i = 0; i < n ; i++)	al.add(0);
@@ -194,54 +194,42 @@ public class GrandEntier {
 
 	public GrandEntier multiply(GrandEntier ge){
 		Integer retenue = 0, resultat = 0;
-		GrandEntier g = null, other = null;
-		GrandEntier resul =null;
-		GrandEntier total = null;
-
-		total = new GrandEntier(new ArrayList());
-
-		ArrayList a = new ArrayList<>();
-		a.add(0);
-
-		resul = new GrandEntier(a);
-
-
-		//Ge supérieure
-		if(compareTo(ge) < 0){
-			//Je me base sur l'adresse de ge
-			g = new GrandEntier(ge);
-			other = new GrandEntier(this);
-		}else {
-			g = new GrandEntier(this);
-			other = new GrandEntier(ge);
-		}
-
-		//ajout dans resul de 0 g.length * other.length fois
-		//pour l'add
-		for(int i = 0; i < other.length() + g.length()-1;i++){
-			total.ajout(0);
-			resul.ajout(0);
-		}
+		GrandEntier total = new GrandEntier(length() + ge.length());
 
 		//decalage 
 		int decalage= 0;
-		for(int i = 0 ; i < g.length() ; i++){
-			for(int j = 0; j < other.length();j++){
-				resultat = g.get(i) * other.get(j) + retenue;	
-				if(resultat>BASE){
+		for(int i = 0 ; i < length() ; i++){
+			
+			GrandEntier resul =new GrandEntier(0);
+			for(int j = 0; j < ge.length();j++){
+
+
+				resultat = get(i) * ge.get(j) + retenue;	
+				
+				if(resultat >= BASE){
 					retenue = resultat / BASE;
 					resultat = resultat % BASE;
+				}else{
+					retenue = 0;
 				}
-				resultat += resul.get(j+decalage);
+				resul.ajout(resultat);
+				
+			}
 
-				resul.set(j+decalage, resultat);
-
+			if(retenue != 0) {
+				resul.ajout(retenue);
+				retenue = 0;
 
 			}
+			resul = resul.shitfLeft(decalage);
+
+
 			decalage++;
+			total = total.add(resul);
+			
 		}
-		resul.ajout(retenue);
-		return resul;
+
+		return total;
 	}
 
 	public void set(int i, int n){
