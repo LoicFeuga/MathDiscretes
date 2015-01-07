@@ -8,7 +8,7 @@ import model.MotBienParenthese;
 /**
  * The Class TestMotBienParenthese.
  * 
- * @author loic, arnaud
+ * @author Arnaud Garnier and Loïc Feuga
  */
 public class TestMotBienParenthese {
 
@@ -39,10 +39,14 @@ public class TestMotBienParenthese {
 
 			Date dEndDate = new Date();
 			long lExecTime = dEndDate.getTime() - dStartDate.getTime();
-			System.out.println("Temps d'exécution pour " + 2 * i
-					+ " en millisecondes: " + lExecTime);
-			System.out.println("Il y a " + MotBienParenthese.catalan2(i)
-					+ " mot(s) de longueur " + 2 * i + ".");
+			System.out.println("Temps d'exécution pour les mots de longueur "
+					+ 2 * i + " en millisecondes: " + lExecTime);
+			System.out.println("Avec la méthode catalan, on calcule : "
+					+ MotBienParenthese.catalan(i) + " mot(s) de longueur " + 2
+					* i + ".");
+			System.out.println("Avec la méthode catalan2, on calcule : "
+					+ MotBienParenthese.catalan2(i) + " mot(s) de longueur "
+					+ 2 * i + ".");
 		}
 		System.out
 				.println("Le mot '" + motTest0 + "' est-il bien parenthésé ?");

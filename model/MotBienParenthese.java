@@ -1,13 +1,11 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * The Class MotBienParenthese.
  * 
- * @author loic, arnaud
+ * @author Arnaud Garnier and Loïc Feuga
  */
 public class MotBienParenthese {
 
@@ -52,20 +50,20 @@ public class MotBienParenthese {
 
 		// Si 0 mot
 		if (n < 0) {
-			System.out.println("0 mot");
+			System.out.println("0 mot.");
 			return;
 		}
 		if (n == 0) {
 			System.out.println("1 mot."); // le mot vide
 		}
-		// Si 1 mot
+		// Sinon pour un mot
 		else if (n == 2) {
 			addOuvrante();
 			addFermante();
 			System.out.println("");
 			return;
 		}
-		// Tous les autres
+		// Puis tous les autres
 		else {
 			// Test pour ajouter qu'au début le mot vide
 			if (nb == 0)
@@ -77,37 +75,33 @@ public class MotBienParenthese {
 				String b = apliquerConstructeur((String) list.get(j),
 						(String) list.get(nb));
 
-				/*
-				 * String a = "("+ list.get(nb)+")"+ list.get(j); String b =
-				 * "("+ list.get(j)+")"+ list.get(nb);
-				 */
-
-				// Sans le contains et avec le delete doublons, temps * 10+
-				if (a.length() <= n && !list.contains(a) && a != "")
+				if (a.length() <= n && !list.contains(a) && a != "") {
 					list.add(a);
-				if (b.length() <= n && !list.contains(b) && b != "")
+				}
+				if (b.length() <= n && !list.contains(b) && b != "") {
 					list.add(b);
+				}
 			}
 
 			// Si on a pas fini, on repart
-			if (nb < list.size() && ++nb < list.size() - 1)
+			if (nb < list.size() && ++nb < list.size() - 1) {
 				enumMotsBP(n / 2);
+			}
 
-			// Pour que la récursivité n'affiche pas n fois les () on condanme
+			// Pour que la récursivité n'affiche pas n fois les () on condamne
 			// avec une constante au premier passage
 			if (fin == 0) {
-				// On codanme
+				// On codamne
 				fin++;
 				// Suppression des mots avec la mauvaise longueur et des
 				// doublons
 				delete(n);
-				// deleteDoublons();
 				int i = 0;
-				// Affichage des mots BP
-				for (; i < list.size(); i++)
-					System.out.println(list.get(i));
 
-				System.out.println("Soit " + i + " nombres");
+				// Affichage des mots BP
+				for (; i < list.size(); i++) {
+					System.out.println(list.get(i));
+				}
 			}
 		}
 	}
@@ -115,7 +109,7 @@ public class MotBienParenthese {
 	/**
 	 * Delete.
 	 * 
-	 * @author loic
+	 * @author Loïc Feuga
 	 * @param n
 	 *            the n
 	 */
@@ -129,23 +123,9 @@ public class MotBienParenthese {
 	}
 
 	/**
-	 * Delete doublons.
-	 * 
-	 * @author loic
-	 */
-	@SuppressWarnings("unused")
-	private static void deleteDoublons() {
-		Set<Object> set = new HashSet<Object>();
-		set.addAll(list);
-		ArrayList<Object> dis = new ArrayList<Object>(set);
-		list = null;
-		list = dis;
-	}
-
-	/**
 	 * Apliquer constructeur.
 	 * 
-	 * @author loic
+	 * @author Loïc Feuga
 	 *
 	 * @param a
 	 *            the a
@@ -160,7 +140,7 @@ public class MotBienParenthese {
 	/**
 	 * Adds the ouvrante.
 	 * 
-	 * @author loic
+	 * @author Loïc Feuga
 	 */
 	private static void addOuvrante() {
 		System.out.print("(");
@@ -172,7 +152,7 @@ public class MotBienParenthese {
 	/**
 	 * Reset.
 	 * 
-	 * @author loic
+	 * @author Loïc Feuga
 	 */
 	public static void reset() {
 		nb = 0;
@@ -188,7 +168,7 @@ public class MotBienParenthese {
 	/**
 	 * Adds the fermante.
 	 * 
-	 * @author loic
+	 * @author Loïc Feuga
 	 */
 	private static void addFermante() {
 		System.out.print(")");
@@ -216,7 +196,8 @@ public class MotBienParenthese {
 	}
 
 	/**
-	 * Catalan v2. Complexité quadratique
+	 * Catalan v2. Complexité quadratique : pour que le tableau se construise
+	 * correctement, il faut itérer la méthode de 0 à n
 	 * 
 	 * @author Arnaud Garnier
 	 * @param n
@@ -287,13 +268,13 @@ public class MotBienParenthese {
 					compteurIndentation--;
 				}
 				for (int j = 0; j < compteurIndentation; j++) {
-					myResult += " ";
+					myResult += "    "; // 4 espace <=> 1 tabulation
 				}
 				if (tab[i].equals(parentheseOuvrante)) {
 					compteurIndentation++;
 				}
 				myResult += tab[i];
-				myResult += "\n";
+				myResult += "\n"; // retour à la ligne
 			}
 		}
 		return myResult;
