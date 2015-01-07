@@ -1,6 +1,9 @@
 package model.loic;
-
+/**
+ * @author loic
+ */
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import exception.GrandEntierException;
@@ -47,40 +50,43 @@ public class TestGrandEntier {
 		System.out.println("J'obtiens : "+gpetit);
 		System.out.println("\n---Méthode add");
 		ArrayList list2 = new ArrayList<>();
-		list2.add(9);
-		list2.add(9);
-		list2.add(9);
-		list2.add(9);
-		list2.add(9);
-		list2.add(9);
-		list2.add(9);
+		multiAdd(10000, 9, list2);
 		list2.add(9);
 		ArrayList list3 = new ArrayList<>();
-		list3.add(9);
-		list3.add(9);
-		list3.add(9);
-		list3.add(9);
-		list3.add(9);
-		list3.add(9);
+		multiAdd(10000, 9, list3);
 		list3.add(9);
 
 		GrandEntier gpetit2 = new GrandEntier(list2);
 		GrandEntier gpetit3 = new GrandEntier(list3);
+		
 
+		Date dStartDate = new Date();
 		GrandEntier gresult = gpetit2.add(gpetit3);
-		System.out.println(gpetit2);		
-		System.out.println("+");
-		System.out.println(gpetit3);
-		System.out.println("="+gresult);
+		Date dEndDate = new Date();
+		long lExecTime = dEndDate.getTime() - dStartDate.getTime();
+		System.out.println("Temps d'exécution pour add en millisecondes: " + lExecTime);
+	//	System.out.println(gpetit2);		
+		//System.out.println("+");
+		//System.out.println(gpetit3);
+		//System.out.println("="+gresult);
 		System.out.println("\n---Méthode multiply");
+		dStartDate = new Date();
 		 gresult = gpetit2.multiply(gpetit3);
-		System.out.println(gpetit2);		
-		System.out.println("*");
-		System.out.println(gpetit3);
-		System.out.println("="+gresult);
+		dEndDate = new Date();
+			lExecTime = dEndDate.getTime() - dStartDate.getTime();
+			System.out.println("Temps d'exécution pour multiply en millisecondes: " + lExecTime);
+		//System.out.println(gpetit2);		
+		//System.out.println("*");
+		//System.out.println(gpetit3);
+		//System.out.println("="+gresult);
 
 	}
 
+	private static void multiAdd(int i, int n, ArrayList list){
+		for(int j = 0 ; j < i; j++){
+			list.add(n);
+		}
+	}
 	public void testNewAndDisplay(){
 
 	}

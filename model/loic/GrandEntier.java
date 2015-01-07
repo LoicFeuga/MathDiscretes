@@ -3,9 +3,12 @@ package model.loic;
 import java.util.ArrayList;
 import java.util.Random;
 
-import exception.GrandEntierException;
-import exception.IntegerNotInBaseException;
 
+/**
+ * 
+ * @author loic & arnaud
+ *
+ */
 public class GrandEntier {
 
 
@@ -25,8 +28,6 @@ public class GrandEntier {
 	 *    
 	 *    TEST OK
 	 * @param list who contains each integer
-	 * @throws IntegerNotInBaseException 
-	 * @throws GrandEntierException 
 	 */
 	public GrandEntier(ArrayList<Integer> list) {
 
@@ -152,8 +153,6 @@ public class GrandEntier {
 	 * Méthode ShiftLeft
 	 * Décalage de n 0 
 	 * @param n
-	 * @throws GrandEntierException 
-	 * @throws IntegerNotInBaseException 
 	 */
 	public GrandEntier shitfLeft(int n) {
 		ArrayList al = new ArrayList<>();
@@ -168,6 +167,7 @@ public class GrandEntier {
 	/**
 	 * Méthode add
 	 * TEST
+	 * @author loic
 	 * @param ge
 	 * @return
 	 */
@@ -192,6 +192,11 @@ public class GrandEntier {
 		return new GrandEntier(resul);
 	}
 
+	/**
+	 * @author loic
+	 * @param ge
+	 * @return
+	 */
 	public GrandEntier multiply(GrandEntier ge){
 		Integer retenue = 0, resultat = 0;
 		GrandEntier total = new GrandEntier(length() + ge.length());
