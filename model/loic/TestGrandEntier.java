@@ -27,7 +27,6 @@ public class TestGrandEntier {
 		System.out.println("---Méthode toString"); 
 		System.out.println("J'attends "+list.get(2)+"x"+gpetit.getBASE()+"^2 + "+list.get(1)+"x"+gpetit.getBASE()+"^1 + "+
 				list.get(0)+"x"+gpetit.getBASE()+"^0");
-		System.out.println("J'obtiens : "+gpetit);
 		System.out.println("\n---Méthode equals");
 		System.out.println("J'attends false, j'obtiens : " + gpetit.equals(ggrand));
 		System.out.println("J'attends false, j'obtiens : " + ggrand.equals(gpetit));
@@ -50,12 +49,8 @@ public class TestGrandEntier {
 		ArrayList list2 = new ArrayList<>();
 		list2.add(9);
 		list2.add(9);
-
-
 		ArrayList list3 = new ArrayList<>();
 		list3.add(9);
-		list3.add(9);
-
 
 		GrandEntier gpetit2 = new GrandEntier(list2);
 		GrandEntier gpetit3 = new GrandEntier(list3);

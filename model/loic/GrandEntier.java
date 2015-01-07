@@ -28,7 +28,7 @@ public class GrandEntier {
 	 * @throws IntegerNotInBaseException 
 	 * @throws GrandEntierException 
 	 */
-	public GrandEntier(ArrayList<Integer> list) throws IntegerNotInBaseException, GrandEntierException{
+	public GrandEntier(ArrayList<Integer> list) {
 
 		//Si le dernier integer est un 0
 		integerList = new ArrayList();
@@ -37,10 +37,17 @@ public class GrandEntier {
 
 			}
 			//Si l'item est non dans la base
-			else throw new IntegerNotInBaseException(list.get(i),BASE);
+			else return;
 		}
 
 		this.integerList = list;
+	}
+	
+	public GrandEntier(int num){
+		integerList = new ArrayList();
+		for(int i = 0; i < num;i++){
+			integerList.add(0);
+		}
 	}
 
 	/**
@@ -165,59 +172,39 @@ public class GrandEntier {
 	 * @return
 	 */
 	public GrandEntier add(GrandEntier ge){
-		Integer retenue = 0, resultat = 0;
-		GrandEntier g = null, other = null;
+		Integer retenue = 0, resultat = 0; 
+		GrandEntier resul = new GrandEntier(0);
 
-		//Ge supérieure
-		if(compareTo(ge) < 0){
-			//Je me base sur l'adresse de ge
-			g = new GrandEntier(ge);
-			other = new GrandEntier(this);
-		}else {
-			g = new GrandEntier(this);
-			other = new GrandEntier(ge);
-		}
-
-		for(int i = 0; i < g.length();i++){
-			resultat = g.get(i) + other.get(i) + retenue;
-			if(resultat > BASE){
+		for(int i = 0; i < length();i++){
+			resultat = get(i) + ge.get(i) + retenue ;
+			if(resultat >= BASE){
 				retenue = 1;
 				resultat %= BASE;
 			}else{
 				retenue = 0;
 			}
-			g.set(i,resultat);
+			resul.ajout(resultat);
 		}
-
+		
 		if(retenue == 1){
-			resultat %= BASE;
-			g.getList().add(1);
+			resul.ajout(1);
 		}
-
-		try {
-			return new GrandEntier((ArrayList<Integer>) g.getList().clone());
-		} catch (IntegerNotInBaseException | GrandEntierException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return null;
-		}
+		return new GrandEntier(resul);
 	}
 
 	public GrandEntier multiply(GrandEntier ge){
 		Integer retenue = 0, resultat = 0;
 		GrandEntier g = null, other = null;
 		GrandEntier resul =null;
+		GrandEntier total = null;
+
+		total = new GrandEntier(new ArrayList());
+
 		ArrayList a = new ArrayList<>();
 		a.add(0);
-		try {
-			resul = new GrandEntier(a);
-		} catch (IntegerNotInBaseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (GrandEntierException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		resul = new GrandEntier(a);
+
 
 		//Ge supérieure
 		if(compareTo(ge) < 0){
@@ -231,21 +218,29 @@ public class GrandEntier {
 
 		//ajout dans resul de 0 g.length * other.length fois
 		//pour l'add
-		for(int i = 0; i < other.length() + g.length();i++) resul.ajout(0);
-		
+		for(int i = 0; i < other.length() + g.length()-1;i++){
+			total.ajout(0);
+			resul.ajout(0);
+		}
+
 		//decalage 
 		int decalage= 0;
 		for(int i = 0 ; i < g.length() ; i++){
 			for(int j = 0; j < other.length();j++){
-				resultat = g.get(i) * other.get(j) + retenue;			
-				retenue = resultat / BASE;
-				resultat+= resul.get(j+decalage);
-				resultat = resultat % BASE;
-				
+				resultat = g.get(i) * other.get(j) + retenue;	
+				if(resultat>BASE){
+					retenue = resultat / BASE;
+					resultat = resultat % BASE;
+				}
+				resultat += resul.get(j+decalage);
+
 				resul.set(j+decalage, resultat);
+
+
 			}
 			decalage++;
 		}
+		resul.ajout(retenue);
 		return resul;
 	}
 
@@ -256,7 +251,10 @@ public class GrandEntier {
 	public void ajout(int a){integerList.add(a);}
 	public ArrayList getList(){return integerList;}
 
-	public int get(int i){return integerList.get(i);}
+	public int get(int i){
+		if(i >= integerList.size()) return (Integer) 0;
+		return integerList.get(i);
+	}
 
 	public int getBASE(){return BASE;}
 }
